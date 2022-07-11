@@ -23,7 +23,7 @@ body {
 
 /* --main-color: #0077b6; */
 :root {
-  --main-color: #084C61;
+  --main-color: #084c61;
   --main-regular-color: #fff;
   --contrast-color: #fff;
   --main-color-darker: #005f92;
@@ -146,7 +146,7 @@ body {
 }
 
 .font-12 {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .resume .resume_left .resume_skills ul li .skill_name {
@@ -173,7 +173,7 @@ body {
   color: var(--main-color);
 }
 
-.resume .resume_right .resume_work ul,
+.resume .resume_right .resume_work ul.jobs,
 .resume .resume_right .resume_education ul {
   padding-left: 40px;
   overflow: hidden;
@@ -193,7 +193,7 @@ body {
   margin-bottom: 9px;
 }
 
-.resume .resume_right .resume_work ul li:before,
+.resume .resume_right .resume_work ul.jobs li.job:before,
 .resume .resume_right .resume_education ul li:before {
   content: "";
   position: absolute;
@@ -205,7 +205,15 @@ body {
   border: 2px solid var(--main-color);
 }
 
-.resume .resume_right .resume_work ul li:after,
+.resume .resume_right .resume_work .project:before {
+  content: "-";
+  position: absolute;
+  top: -2px;
+  left: -15px;
+  font-size: x-large;
+}
+
+/* .resume .resume_right .resume_work ul.jobs li.job:after,
 .resume .resume_right .resume_education ul li:after {
   content: "";
   position: absolute;
@@ -214,7 +222,7 @@ body {
   width: 2px;
   height: 100%;
   background: var(--main-color);
-}
+} */
 
 .resume_certification {
   color: var(--main-regular-color);
@@ -223,6 +231,32 @@ body {
 .resume .resume_left .resume_certification .semi-bold {
   color: var(--contrast-color);
   margin-bottom: 3px;
+}
+
+.technologies ul.skills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.technologies ul li .skill_name {
+  background-color: var(--main-color);
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  padding: 5px;
+  margin: 1px;
+  /* font-size: 10px; */
+}
+
+.project {
+  position: relative;
+}
+
+.activities {
+  margin-left: 5px;
 }
 
 /* .resume .resume_right .resume_hobby ul {
@@ -262,18 +296,33 @@ body {
   body {
     width: 210mm;
     /* height: 297mm; */
-    height: 100% !important;
+    height: 100vh !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
   @page {
-    size: Letter;
+    size: auto;
     margin: 0;
   }
   .resume {
-    margin: 0;
-    height: 100% !important;
+    margin: 0 !important;
+    /* height: 100vh !important; */
   }
   .resume .resume_left {
     background: var(--main-color) !important;
     -webkit-print-color-adjust: exact !important;
+    /* height: 100vh; */
+  }
+
+  .nextPage {
+    page-break-after: always;
+  }
+
+  .firstOfPage {
+    margin-top: 20px;
+  }
+
+  .lastProject {
+    margin-bottom: 119px;
   }
 }
